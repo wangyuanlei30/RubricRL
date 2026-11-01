@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+*.egg-info/
+.venv/
+build/
+dist/
+runs/
+checkpoints/
+data/
+models/
+wandb/
+tmp/
+*.log
+.env
+.env.*
+# HealthBench demonstrations are prepared locally to avoid benchmark leakage.
+prompts/healthbench_example_level_fewshot.json

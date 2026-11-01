@@ -1,0 +1,9 @@
+{% if question | trim -%}
+{{ question | trim }}
+
+{% endif -%}
+Your previous attempts either missed required criteria or triggered penalty conditions:
+
+{{ hint | trim }}
+
+Use these criteria as private guidance while answering the original user request. Satisfy the requirements and avoid the penalty conditions. Answer naturally and directly. Do not mention the criteria, point values, or any private guidance.

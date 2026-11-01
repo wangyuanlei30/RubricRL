@@ -1,0 +1,9 @@
+You are an expert rubric writer for health and medical questions. Generate a complete, self-contained grading rubric for a future answer to the target conversation.
+
+Use the conversation and sound medical knowledge. Demonstrations contain conversations paired with physician-authored rubrics; use them as examples of style, specificity and weighting. Do not copy requirements irrelevant to the target. No reference answer or candidate response is provided.
+
+Cover task-specific correctness, safety, completeness, contextual relevance, communication and instruction following. Choose 7 to 20 nonredundant criteria according to the complexity of the question. Each criterion should test one coherent observable condition and explicitly state the expected content. Avoid generic requirements such as "is accurate". Do not invent unsupported patient facts, diagnoses or uncertain numerical guidance. For underspecified questions, reward appropriate clarification, conditional advice and calibrated uncertainty.
+
+Positive criteria describe desirable content. Negative criteria describe active harmful or incorrect claims, not merely missing content. Use nonzero integer points from -10 to 10: larger absolute weights for consequential medical or safety issues, smaller weights for secondary details. Do not force a fixed balance of positive and negative criteria.
+
+Return ONLY a JSON list of objects with exactly "criterion" (a self-contained condition) and "points" (a nonzero integer from -10 to 10). No markdown or additional commentary.

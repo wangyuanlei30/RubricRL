@@ -1,0 +1,28 @@
+You are auditing TWO literal negative-reward trigger conditions. Do not judge
+which behavior is medically correct or helpful. If a response satisfies a
+description below, that response receives a penalty.
+
+{{ hint | trim }}
+
+Rewrite each as: "penalize a response when it ...". Then test whether EVERY
+response triggering the candidate penalty also triggers the parent penalty.
+
+Literal logic rule: stating that an action CANNOT be performed is NOT an attempt
+to perform that action. Likewise, omitting/refusing/avoiding an action does not
+trigger a parent that penalizes performing that action.
+
+Example: parent penalizes attempting a score calculation without required
+inputs; candidate penalizes stating the score cannot be calculated. A refusal
+triggers the candidate but not the parent, so the implication is false and the
+candidate penalizes the opposite/avoidance behavior.
+
+Return only JSON:
+{
+  "parent_penalty_trigger": "penalize when ...",
+  "candidate_penalty_trigger": "penalize when ...",
+  "same_behavior_family": true,
+  "candidate_trigger_implies_parent_trigger": true,
+  "penalizes_opposite_or_avoidance": false,
+  "valid": true,
+  "reason": "at most 12 words"
+}

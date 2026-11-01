@@ -1,0 +1,175 @@
+# Paper-aligned configuration on the original shared-policy training runtime.
+# Paths are filled by train.py. S : horizontal RG : vertical RG = 1 : .125 : .125.
+data:
+  train_files: ""
+  val_files: ""
+  prompt_key: prompt
+  answer_key: answer
+  max_prompt_length: 4096
+  max_response_length: 4096
+  filter_overlong_prompts: false
+  rollout_batch_size: 64
+  val_batch_size: 32
+  format_prompt: prompts/rubric_raw.jinja
+  apply_chat_template_kwargs: {enable_thinking: false}
+  use_preprocessed_videos: false
+  shuffle: true
+  seed: 1
+
+algorithm:
+  adv_estimator: grpo
+  disable_kl: false
+  use_kl_loss: true
+  kl_penalty: low_var_kl
+  kl_coef: 0.001
+  online_filtering: false
+
+opsd:
+  enable_grpo_opsd_simple: true
+  enable_rubric_generator_training: true
+  rubric_generator_rollout_n: 8
+  rubric_generator_temperature: 1.0
+  rubric_generator_invalid_reward: -1.0
+  rubric_generator_soft_token_budget: 4096
+  rubric_generator_loss_coef: 0.25
+  rubric_generator_gap_loss_weight: 0.5
+  rubric_generator_vertical_loss_weight: 0.5
+  rubric_generator_teacher_max_prompt_length: 16384
+  rubric_generator_meta_overrides: {}
+  rubric_generator_log_dir: ""
+
+  # Offline initialization uses the frozen base model, then exits before RL.
+  # Online initialization MUST stay off, otherwise roots use the updated actor.
+  enable_rubric_initialization: false
+  rubric_initialization_mode: question_only
+  rubric_initialization_prompt_dir: prompts
+  rubric_initialization_template: prompts/rubric_initialization_passthrough.jinja
+  rubric_initialization_few_shot_examples: 5
+  rubric_initialization_max_tokens: 4096
+  rubric_initialization_max_prompt_length: 32768
+  rubric_initialization_temperature: 0.7
+
+  enable_rubric_evolution: true
+  enable_rubric_gap_expansion: true
+  enable_rubric_vertical_evolution: true
+  rubric_gap_max_candidates_per_prompt: 6
+  rubric_gap_max_roots_per_prompt: 20
+  rubric_gap_root_weight: 1.0
+  rubric_evolution_interval: 1
+  rubric_evolution_tau_dead: 0.0
+  rubric_evolution_tau_sat: 1.0
+  rubric_evolution_delayed_steps: 0
+  rubric_evolution_equal_parent_child_weights: true
+  rubric_evolution_transfer_parent_weight_to_children: false
+  rubric_evolution_max_subcriteria: 2
+  rubric_evolution_max_refinements: 2
+  rubric_evolution_only_example_criteria: false
+  rubric_evolution_max_targets_per_step: 0
+  rubric_evolution_max_targets_per_prompt: 4
+  rubric_evolution_min_split_count: 2
+  rubric_evolution_max_candidates_per_meta_batch: 4
+  rubric_evolution_judge_max_workers: 16
+  rubric_evolution_retry_cooldown_steps: 10
+  rubric_evolution_max_prompt_length: 16384
+  rubric_evolution_contrast_max_tokens: 4096
+  rubric_evolution_proposer_max_tokens: 4096
+  rubric_evolution_verifier_max_tokens: 8192
+  rubric_evolution_contrast_template: prompts/rubric_evolution_contrast.jinja
+  rubric_evolution_decompose_template: prompts/rubric_evolution_decompose.jinja
+  rubric_evolution_refine_template: prompts/rubric_evolution_refine.jinja
+  rubric_evolution_verify_template: prompts/rubric_evolution_verify.jinja
+  rubric_evolution_batch_proposal_template: prompts/rubric_evolution_batch_proposal.jinja
+  rubric_evolution_batch_verify_template: prompts/rubric_evolution_batch_verify.jinja
+  rubric_gap_proposal_template: prompts/rubric_gap_proposal.jinja
+  rubric_gap_meta_verify_template: prompts/rubric_gap_meta_verify.jinja
+  rubric_child_meta_verify_template: prompts/rubric_child_meta_verify.jinja
+  enable_dead_criteria_guided_rollout: false
+
+  enable_rubric_guided_rlsd: true
+  rubric_guided_teacher_template: prompts/rubric_guided_rlsd_teacher.jinja
+  freeze_teacher_model: true
+  rlsd_lambda: 0.5
+  rlsd_reweight_clip_range: 0.2
+  rlsd_lambda_warmup_steps: 0
+  rlsd_lambda_decay_steps: 0
+  rlsd_teacher_sync_interval: 10
+
+worker:
+  actor:
+    global_batch_size: 64
+    micro_batch_size_per_device_for_update: 1
+    micro_batch_size_per_device_for_experience: 1
+    ppo_epochs: 1
+    loss_avg_mode: token
+    max_grad_norm: 1.0
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.28
+    padding_free: true
+    dynamic_batching: true
+    ulysses_size: 1
+    model:
+      model_path: ""
+      enable_gradient_checkpointing: true
+      trust_remote_code: false
+    optim:
+      lr: 1.0e-6
+      weight_decay: 0.01
+      strategy: adamw
+      lr_warmup_ratio: 0.0
+    fsdp: {enable_full_shard: true, enable_cpu_offload: false, enable_rank0_init: true}
+    offload: {offload_params: true, offload_optimizer: true}
+  rollout:
+    n: 8
+    temperature: 1.0
+    top_p: 1.0
+    max_model_len: 36864
+    limit_images: 0
+    gpu_memory_utilization: 0.35
+    enforce_eager: false
+    enable_chunked_prefill: true
+    tensor_parallel_size: 1
+    max_num_batched_tokens: 32768
+    val_override_config: {temperature: 0.0, top_p: 1.0, top_k: -1, repetition_penalty: 1.0, presence_penalty: 0.0, n: 1}
+  ref:
+    fsdp: {enable_full_shard: true, enable_cpu_offload: true, enable_rank0_init: true}
+    offload: {offload_params: false}
+  reward:
+    reward_function: rewards/rubric_llm_judge.py:compute_score
+    num_cpus: 1
+    log_criterion_scores: false
+    reward_function_kwargs:
+      judge_provider: deepseek
+      model: deepseek-v4-flash-0731
+      base_urls: [https://api.deepseek.com]
+      api_key_env: DEEPSEEK_API_KEY
+      temperature: 0.0
+      timeout: 120.0
+      max_retries: 2
+      response_retries: 2
+      enable_thinking: false
+      extra_body: {thinking: {type: disabled}}
+      response_format: {type: json_object}
+      max_tokens: 2048
+      max_workers: 64
+      max_workers_per_url: 64
+      emit_criterion_scores: true
+      fail_on_error: true
+
+trainer:
+  total_epochs: 2
+  project_name: LiveRubric
+  experiment_name: liverubric-4gpu
+  logger: [file]
+  nnodes: 1
+  n_gpus_per_node: 4
+  max_try_make_batch: 20
+  enable_validation: false
+  val_freq: 100
+  val_before_train: false
+  val_generations_to_log: 3
+  save_freq: 10
+  save_limit: -1
+  save_model_only: false
+  save_checkpoint_path: ""
+  load_checkpoint_path: null
+  find_last_checkpoint: false

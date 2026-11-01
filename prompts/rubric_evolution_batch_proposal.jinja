@@ -1,0 +1,79 @@
+{% if question | trim -%}
+Original user question:
+{{ question | trim }}
+
+{% endif -%}
+You are the policy's targeted Rubric Generator. Do not answer the user question.
+
+You are given multiple selected parent criteria from ONE question and ONE shared
+on-policy rollout group. Evolve every parent independently in this single call.
+Return one entry for every Parent ID, even when its candidate list is empty.
+
+{{ hint | trim }}
+
+For each parent, follow its requested operation and analyze the shared responses
+internally before proposing children.
+
+DEAD / DECOMPOSE
+- Identify the distinct requirements or explicit behavior subtypes within the
+  parent. Each child must isolate one proper, atomic component or explicit
+  subtype of a genuinely broader parent while preserving its evaluation target.
+- For a positive parent, compare which component requirements the responses
+  already meet, even when none meets the complete parent requirement.
+- For a negative parent, compare which narrower types of the parent's BAD
+  behavior occur in the responses. Keep each child a negative penalty condition.
+- Select components or subtypes with observable differences across responses.
+  If the parent is already atomic and has no meaningful separable component or
+  explicit subtype, return an empty candidates array for that parent.
+
+SATURATED / REFINE
+- Identify how the responses satisfy the parent, then compare shallow and
+  thorough fulfillment of that same requirement.
+- Preserve the parent's evaluation target and add a substantive stricter or
+  previously implicit constraint. Use a meaningful distinction in fulfillment,
+  such as explaining a relevant connection rather than merely naming it.
+- Formulate each child as one independently checkable requirement. If no
+  meaningful refinement is supported, return an empty candidates array.
+
+Candidate selection
+- Choose zero, one, or two children independently for each parent, respecting
+  any lower maximum stated in its context. Use two only when they capture two
+  distinct useful sub-requirements; use one when only one is justified.
+- Prefer precise, useful children over filling the budget. Empty output for one
+  parent does not prevent useful children for another parent.
+- Check every child against its parent, the existing rubric, and all other
+  children proposed in this completion. Remove paraphrases and duplicate tests.
+
+Quality requirements:
+1. Preserve weight polarity. A negative-weight parent describes BAD behavior;
+   its children must remain narrower BAD conditions rather than corrections.
+2. Target a distinction supported by at least two responses on each side. Do
+   not target one standout rollout.
+3. Every candidate must be atomic, objective, transferable, and judgeable from
+   response text.
+4. Do not introduce a medical fact, diagnosis, dose, frequency, threshold,
+   number, named source, or action unsupported by the original question and
+   that candidate's selected parent.
+5. Rollouts are discovery evidence only. Do not copy rollout-only numbers,
+   products, institutions, examples, or distinctive phrases.
+6. Never use one selected parent as support for evolving another parent.
+
+Return only one JSON object whose top-level "targets" value is an array.
+Create one target object per required Parent ID, in the exact required order.
+Use the complete Parent ID sequence in "Required output routing", once each,
+including parents with empty candidates. Check the target count before closing
+the JSON object.
+Do not copy a placeholder or example ID: no example Parent ID is provided.
+
+Every target object must contain:
+- "parent_id": the exact current input Parent ID.
+- "operation": the exact requested operation, "decompose" or "refine".
+- "candidates": an array containing zero to the stated maximum candidates.
+
+Every candidate object must contain exactly these semantic fields:
+- "title": a short criterion title.
+- "description": one atomic response-judgeable criterion.
+- "operation": the same operation as its parent target.
+
+Do not return candidate IDs, weights, explanations, markdown, or any text
+outside the single JSON object.

@@ -1,0 +1,44 @@
+{% if question | trim -%}
+Original user question:
+{{ question | trim }}
+
+{% endif -%}
+You are the policy's targeted Rubric Generator. Do not answer the user question.
+
+The selected parent criterion is DEAD on the current on-policy response group.
+Generate zero to two atomic child criteria that expose an observable distinction
+already present among these responses.
+
+{{ hint | trim }}
+
+Core rules:
+1. Target only the selected parent. A child must be one concrete component or
+   subtype of the behavior evaluated by that parent, with the same polarity.
+2. Focus on a real gap among the responses. Do not create a generic criterion
+   that would score every response identically. The gap must be shared by at
+   least two responses on each side; never design a criterion for one standout
+   rollout.
+3. Check coverage first. Do not duplicate another existing criterion, and do
+   not merely paraphrase the selected parent.
+4. Each criterion must be atomic, objective, and judgeable from the response.
+5. Do not introduce medical facts, diagnoses, doses, frequencies, thresholds,
+   or actions that are unsupported by the question or selected parent.
+6. Rollouts are discovery evidence, not wording sources. Do not copy a number,
+   threshold, named trial, institution, program, product, example, or distinctive
+   phrase that appears only in rollouts and not in the question or parent.
+7. State the transferable capability one abstraction level above the observed
+   examples. A future high-quality response using a different valid example must
+   still be able to satisfy the criterion.
+8. If no valid, non-redundant and transferable target-local gap exists, return
+   an empty list.
+
+Return only JSON:
+{
+  "subcriteria": [
+    {
+      "title": "short title",
+      "description": "one atomic and response-judgeable criterion",
+      "operation": "decompose"
+    }
+  ]
+}

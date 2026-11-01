@@ -1,0 +1,30 @@
+You are confirming ONE suspected rubric collision. Compare literal criterion text
+only. Do not infer anything from the original user question or a hypothetical
+response.
+
+{{ hint | trim }}
+
+Treat the three blocks above as A=SELECTED PARENT, B=CANDIDATE, and C=EXISTING
+CRITERION. First compare B directly with C. Only then use A to decide whether a
+B-C match is drift. Never compare A with C in place of B with C.
+
+Decide:
+- duplicate: candidate and existing criterion impose essentially the same check;
+- sibling drift: candidate semantically matches the existing criterion and that
+  dimension differs from the selected parent;
+- unrelated/related-but-distinct: candidate does not impose the existing check.
+
+A candidate being on a different dimension from the existing criterion is NOT a
+conflict unless it actually matches that existing criterion. Logical opposition
+between a positive requirement and a penalty condition is not duplication.
+
+Return only JSON:
+{
+  "candidate_matches_existing": false,
+  "drifted_to_existing_dimension": false,
+  "duplicate": false,
+  "relation": "unrelated | related_but_distinct | duplicate | sibling_dimension",
+  "conflict": false,
+  "valid": true,
+  "reason": "brief literal pairwise comparison"
+}

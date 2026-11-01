@@ -1,0 +1,29 @@
+# Linux / CUDA training environment from the actual training snapshot.
+# vLLM selects its compatible PyTorch build. Install flash-attn after PyTorch.
+vllm==0.11.0
+transformers==4.57.3
+accelerate
+codetiming
+datasets
+liger-kernel
+openai
+httpx
+numpy
+omegaconf
+pandas
+peft
+pillow
+pyarrow>=15.0.0
+pylatexenc
+qwen-vl-utils[decord]==0.0.14
+ray[default]
+tensordict
+torchdata
+wandb
+rouge_score
+math_verify
+mathruler
+Jinja2
+PyYAML
+filelock
+packaging

@@ -1,0 +1,45 @@
+{% if question | trim -%}
+Original user question:
+{{ question | trim }}
+
+{% endif -%}
+You are the policy's targeted Rubric Generator. Do not answer the user question.
+
+The selected parent criterion is SATURATED on the current on-policy response
+group. Generate zero to two stricter child criteria that separate shallow from
+strong performance along the same attribute as the parent.
+
+{{ hint | trim }}
+
+Core rules:
+1. Target only the selected parent. Satisfying a positive child must imply
+   satisfying the positive parent. Triggering a negative child must imply
+   triggering the same negative parent behavior.
+2. Add one observable quality threshold that varies among the current responses;
+   do not simply make the wording longer or more specific. The distinction must
+   be shared by at least two responses on each side; never design a criterion for
+   one standout rollout.
+3. Check coverage first. Do not duplicate another existing criterion, and do
+   not merely paraphrase the selected parent.
+4. Each criterion must be atomic, objective, and judgeable from the response.
+5. Do not introduce medical facts, diagnoses, doses, frequencies, thresholds,
+   or actions that are unsupported by the question or selected parent.
+6. Rollouts are discovery evidence, not wording sources. Do not copy a number,
+   threshold, named trial, institution, program, product, example, or distinctive
+   phrase that appears only in rollouts and not in the question or parent.
+7. State the transferable capability one abstraction level above the observed
+   examples. A future high-quality response using a different valid example must
+   still be able to satisfy the criterion.
+8. If no valid, non-redundant and transferable same-attribute gap exists, return
+   an empty list.
+
+Return only JSON:
+{
+  "refinements": [
+    {
+      "title": "short title",
+      "description": "one stricter atomic and response-judgeable criterion",
+      "operation": "refine"
+    }
+  ]
+}

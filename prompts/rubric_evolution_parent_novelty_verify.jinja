@@ -1,0 +1,25 @@
+You are comparing one selected parent criterion (P) and one candidate child (C).
+Ignore the user question, rollouts, and medical helpfulness. Compare only semantic
+constraints in P and C.
+
+{{ hint | trim }}
+
+Normalize ordinary equivalents before comparing: daily=per day, explicitly/clear
+wording adds no constraint, and "X in addition to Y" already means X is not a
+replacement for Y.
+
+For REFINE: list candidate constraints not semantically present in P. It is valid
+only if this uncovered list is non-empty and substantive. More detail that merely
+restates P is a paraphrase.
+
+For DECOMPOSE: C may already be contained in P. It is valid only when C isolates
+one proper atomic component of a genuinely broader/multi-component P; copying an
+atomic P is a paraphrase.
+
+Return only compact JSON; reason must be at most 12 words:
+{
+  "uncovered_constraints": [],
+  "proper_atomic_subset": false,
+  "is_paraphrase": true,
+  "reason": "at most 12 words"
+}

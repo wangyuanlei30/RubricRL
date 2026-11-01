@@ -1,0 +1,768 @@
+{
+  "snapshot": "Rubric_RL_source_20260930",
+  "files": [
+    {
+      "release": ".gitignore",
+      "source": ".gitignore",
+      "source_sha256": "54b609d915f70e8d63569f462593f97a6663bf61f33cac992a304097d33b1e81",
+      "release_sha256": "3a7169c90d2305337de728506680aeccf5277538daef6d3cb39d8e8846444de3"
+    },
+    {
+      "release": "prompts/dead_criteria_guided_rollout.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/dead_criteria_guided_rollout.jinja",
+      "source_sha256": "28a9e200d82b8a5c735dfb5fc30b4f5ed63c68ceb049fec6534ccd94b2a51048",
+      "release_sha256": "28a9e200d82b8a5c735dfb5fc30b4f5ed63c68ceb049fec6534ccd94b2a51048"
+    },
+    {
+      "release": "prompts/evorubric_bootstrap_user_template.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/evorubric_bootstrap_user_template.jinja",
+      "source_sha256": "d281f68794918a15a5f9d049b5ce39cfb68d96debc039a656758911541a8b7da",
+      "release_sha256": "d281f68794918a15a5f9d049b5ce39cfb68d96debc039a656758911541a8b7da"
+    },
+    {
+      "release": "prompts/evorubric_generator_system.txt",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/evorubric_generator_system.txt",
+      "source_sha256": "28c5d4c45cc5a662d20bbd7b438115b713cebcf4f2dd1e0f3052e6cf1eaa075a",
+      "release_sha256": "28c5d4c45cc5a662d20bbd7b438115b713cebcf4f2dd1e0f3052e6cf1eaa075a"
+    },
+    {
+      "release": "prompts/healthbench_example_level_fewshot.json",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/healthbench_example_level_fewshot.json",
+      "source_sha256": "e09a4e9a14136b03ae9c8202c55b76e6bc7014d6709c423cc55353d05df29f7a",
+      "release_sha256": "e09a4e9a14136b03ae9c8202c55b76e6bc7014d6709c423cc55353d05df29f7a",
+      "local_only": true
+    },
+    {
+      "release": "prompts/question_only_initial_rubric_system.txt",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/question_only_initial_rubric_system.txt",
+      "source_sha256": "c1d861958c04c895e3a677a5163d811a3b53e38f845e2d4438b344fe2ed63a2c",
+      "release_sha256": "c1d861958c04c895e3a677a5163d811a3b53e38f845e2d4438b344fe2ed63a2c"
+    },
+    {
+      "release": "prompts/rar_reference_initial_rubric_generator_system.txt",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rar_reference_initial_rubric_generator_system.txt",
+      "source_sha256": "00d97566ade9e6608f7bba84d4ded5bd6679842a2fda377f946cba5942258d83",
+      "release_sha256": "00d97566ade9e6608f7bba84d4ded5bd6679842a2fda377f946cba5942258d83"
+    },
+    {
+      "release": "prompts/reference_initial_rubric_user_template.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/reference_initial_rubric_user_template.jinja",
+      "source_sha256": "7238d7bb2b5c20bf267bc2af10ccd3e4323f2161cc7f10106a87daa1170dc073",
+      "release_sha256": "7238d7bb2b5c20bf267bc2af10ccd3e4323f2161cc7f10106a87daa1170dc073"
+    },
+    {
+      "release": "prompts/rubric_child_meta_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_child_meta_verify.jinja",
+      "source_sha256": "842a6577ccbba96796bcbdc4cea6583dabffed3ed88fdd5e9036a6e851a950f5",
+      "release_sha256": "842a6577ccbba96796bcbdc4cea6583dabffed3ed88fdd5e9036a6e851a950f5"
+    },
+    {
+      "release": "prompts/rubric_evolution_batch_proposal.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_evolution_batch_proposal.jinja",
+      "source_sha256": "265a20a59cfb3170f68265b80c67d360bc5ee7a805ab031773317c25f25ac473",
+      "release_sha256": "265a20a59cfb3170f68265b80c67d360bc5ee7a805ab031773317c25f25ac473"
+    },
+    {
+      "release": "prompts/rubric_evolution_batch_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_batch_verify.jinja",
+      "source_sha256": "17b1329a3f19910427130f064b946d33af591399d84584ab95b70149a2a3ac56",
+      "release_sha256": "17b1329a3f19910427130f064b946d33af591399d84584ab95b70149a2a3ac56"
+    },
+    {
+      "release": "prompts/rubric_evolution_collision_pair_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_collision_pair_verify.jinja",
+      "source_sha256": "65033f03629ff32f826963928f20b6ce67c436de821ba6865889cb61b3a773e2",
+      "release_sha256": "65033f03629ff32f826963928f20b6ce67c436de821ba6865889cb61b3a773e2"
+    },
+    {
+      "release": "prompts/rubric_evolution_collision_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_collision_verify.jinja",
+      "source_sha256": "af17ee41de98c60b07f3e7d02bcc3754d7cdebc37892d84cd160e7b9ee829c88",
+      "release_sha256": "af17ee41de98c60b07f3e7d02bcc3754d7cdebc37892d84cd160e7b9ee829c88"
+    },
+    {
+      "release": "prompts/rubric_evolution_contrast.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_contrast.jinja",
+      "source_sha256": "a52b345ab3de81fc63d17a026f9837bdaf530f07990d2f533da3d4e6ffcc124a",
+      "release_sha256": "a52b345ab3de81fc63d17a026f9837bdaf530f07990d2f533da3d4e6ffcc124a"
+    },
+    {
+      "release": "prompts/rubric_evolution_decompose.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_decompose.jinja",
+      "source_sha256": "8f4677b38bc59897906b12fae9f4dada7dc9a5299862101ea4dd727b89593cf8",
+      "release_sha256": "8f4677b38bc59897906b12fae9f4dada7dc9a5299862101ea4dd727b89593cf8"
+    },
+    {
+      "release": "prompts/rubric_evolution_negative_polarity_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_negative_polarity_verify.jinja",
+      "source_sha256": "ccd26e22228a2e60c8acf43fffb92258e037e101f6de39e808c9676f39304019",
+      "release_sha256": "ccd26e22228a2e60c8acf43fffb92258e037e101f6de39e808c9676f39304019"
+    },
+    {
+      "release": "prompts/rubric_evolution_parent_novelty_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_parent_novelty_verify.jinja",
+      "source_sha256": "35f74f53adcb5392539354abac7baa313635902bc90fc791a7a191ac87590348",
+      "release_sha256": "35f74f53adcb5392539354abac7baa313635902bc90fc791a7a191ac87590348"
+    },
+    {
+      "release": "prompts/rubric_evolution_refine.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_refine.jinja",
+      "source_sha256": "716de7fbbd0eb5b8c36ef280549e9e177e850f9d03f250325d53017136642f2c",
+      "release_sha256": "716de7fbbd0eb5b8c36ef280549e9e177e850f9d03f250325d53017136642f2c"
+    },
+    {
+      "release": "prompts/rubric_evolution_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_evolution_verify.jinja",
+      "source_sha256": "9fcd9c7b00097cecce0714a552c7fc3b35cc8d8f9c614e26bc643d1bc1b48e12",
+      "release_sha256": "9fcd9c7b00097cecce0714a552c7fc3b35cc8d8f9c614e26bc643d1bc1b48e12"
+    },
+    {
+      "release": "prompts/rubric_gap_meta_verify.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_gap_meta_verify.jinja",
+      "source_sha256": "ba7a17d6ef3937c38711008959793c31f6506eae71eea007bcb21132552538aa",
+      "release_sha256": "ba7a17d6ef3937c38711008959793c31f6506eae71eea007bcb21132552538aa"
+    },
+    {
+      "release": "prompts/rubric_gap_proposal.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_gap_proposal.jinja",
+      "source_sha256": "dd5826b5665fad40f8ad93dd582b584e65b77fcb483a8221915f2b823586a911",
+      "release_sha256": "dd5826b5665fad40f8ad93dd582b584e65b77fcb483a8221915f2b823586a911"
+    },
+    {
+      "release": "prompts/rubric_guided_rlsd_teacher.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_guided_rlsd_teacher.jinja",
+      "source_sha256": "f71eee85e6d5f4ed8307fc4b6c2abc0946b62df6c24480c483e573636df2a973",
+      "release_sha256": "f71eee85e6d5f4ed8307fc4b6c2abc0946b62df6c24480c483e573636df2a973"
+    },
+    {
+      "release": "prompts/rubric_initialization_passthrough.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_initialization_passthrough.jinja",
+      "source_sha256": "1b1908cc32dc17fbca4e2b152686226a91f1e2b7ef56a7bf5353f7435e7eb43a",
+      "release_sha256": "1b1908cc32dc17fbca4e2b152686226a91f1e2b7ef56a7bf5353f7435e7eb43a"
+    },
+    {
+      "release": "prompts/rubric_raw.jinja",
+      "source": "examples/visual_rl/format_prompt/rubric_prompt/rubric_raw.jinja",
+      "source_sha256": "63c3c33b9bc53b7474eb917c894fc6f7a590d5a61d84fcd3075f41a4495bcbff",
+      "release_sha256": "63c3c33b9bc53b7474eb917c894fc6f7a590d5a61d84fcd3075f41a4495bcbff"
+    },
+    {
+      "release": "pyproject.toml",
+      "source": "pyproject.toml",
+      "source_sha256": "3e38c2149400aa1221e4b1e0808da5ca5e0535f7e055acb50caa214e4fc9a2e6",
+      "release_sha256": "2008eca47c42513a43dc2ca6ea3d43a12e83226a92b023eaf79e498e8c1a912e"
+    },
+    {
+      "release": "requirements.txt",
+      "source": "requirements.txt",
+      "source_sha256": "c323a749ec59907b95cde9709d088d02afd2ab5f4f2fc8b4d6093b1758e3c08e",
+      "release_sha256": "0ff0ad6f4f1ed003d9f67dd6c410022350520e8c61662e026e47ca3751936381"
+    },
+    {
+      "release": "rewards/rubric_jev_judge.py",
+      "source": "examples/visual_rl/reward_function/rubric_jev_judge.py",
+      "source_sha256": "6be100778ecddfc4ce81beb05566eb26e9c71b01807558ef779cdaaffabea17c",
+      "release_sha256": "6be100778ecddfc4ce81beb05566eb26e9c71b01807558ef779cdaaffabea17c"
+    },
+    {
+      "release": "rewards/rubric_llm_judge.py",
+      "source": "examples/visual_rl/reward_function/rubric_llm_judge.py",
+      "source_sha256": "694a2dd57cdc0c184105adf4fd0e8aafcdc89a68f3760b1aa44b6f4e5c96b51d",
+      "release_sha256": "694a2dd57cdc0c184105adf4fd0e8aafcdc89a68f3760b1aa44b6f4e5c96b51d"
+    },
+    {
+      "release": "rubric_generation/__init__.py",
+      "source": "rubric_generation/__init__.py",
+      "source_sha256": "02958149a6b29f218fc3efd0f89bdb13063ee98d0f8318db1694542038f6a88d",
+      "release_sha256": "606805091776604f4c75070a13d09e4a7d40e71415e3c317b2479f3b68ff69f0"
+    },
+    {
+      "release": "rubric_generation/offline_question_rubrics.py",
+      "source": "rubric_generation/offline_question_rubrics.py",
+      "source_sha256": "96d7b9799abdf6ff71709981fcbfa1188bb4fc5dd834ed9701817f93e448d4b0",
+      "release_sha256": "96d7b9799abdf6ff71709981fcbfa1188bb4fc5dd834ed9701817f93e448d4b0"
+    },
+    {
+      "release": "rubric_generation/prepared_rubric_dataset.py",
+      "source": "rubric_generation/prepared_rubric_dataset.py",
+      "source_sha256": "b0a0404857296d12913072d8682bf132b6eca9bac3ddcc9445284ca087151cfa",
+      "release_sha256": "dbae856bd2639a24b0d43d2c36a3297c946b31f22f9e12859044647648341409"
+    },
+    {
+      "release": "rubric_generation/rubric_initializer.py",
+      "source": "rubric_generation/rubric_initializer.py",
+      "source_sha256": "4cf59b22861a778270a2ef66fb1601f9edae7f0d8ad48a7662e6ffffe51530fa",
+      "release_sha256": "4cf59b22861a778270a2ef66fb1601f9edae7f0d8ad48a7662e6ffffe51530fa"
+    },
+    {
+      "release": "tests/runtime/test_rollout_response_padding.py",
+      "source": "tests/test_rollout_response_padding.py",
+      "source_sha256": "bd959b8b59dea64bf57a0e62fae89799bb471e2618bd7b122ba35b98c27284e3",
+      "release_sha256": "bd959b8b59dea64bf57a0e62fae89799bb471e2618bd7b122ba35b98c27284e3"
+    },
+    {
+      "release": "tests/runtime/test_rubric_evolution.py",
+      "source": "tests/test_rubric_evolution.py",
+      "source_sha256": "dffd3f670d300b72241bc47507cd51d569e067d0978f85e998066f501cdeae56",
+      "release_sha256": "dffd3f670d300b72241bc47507cd51d569e067d0978f85e998066f501cdeae56"
+    },
+    {
+      "release": "tests/runtime/test_rubric_guided_rlsd.py",
+      "source": "tests/test_rubric_guided_rlsd.py",
+      "source_sha256": "efda1c879af22e974eea83e6a738d68e10cb7e4d41bd6188ac727f8f5f9007a2",
+      "release_sha256": "794e564c230d64e9c190a041bad80bd38bf1925f7deb8a28c09cd2645014770f"
+    },
+    {
+      "release": "tests/runtime/test_rubric_llm_judge.py",
+      "source": "tests/test_rubric_llm_judge.py",
+      "source_sha256": "13e0a045a76f8c9a1146cde750099bd7755e2652c0ef200253578422ed43db93",
+      "release_sha256": "232a06538d6a790d3e3388e2837ea937570c60187eaf136b7413a4c34dcba8be"
+    },
+    {
+      "release": "verl/.DS_Store",
+      "source": "verl/.DS_Store",
+      "source_sha256": "690b869df4a1d89a28f18f7ad1695e0620a8da72bc37e2ca9f7017705bda42e1",
+      "release_sha256": "690b869df4a1d89a28f18f7ad1695e0620a8da72bc37e2ca9f7017705bda42e1"
+    },
+    {
+      "release": "verl/__init__.py",
+      "source": "verl/__init__.py",
+      "source_sha256": "71e3d6e8033cdaa74d9a0e7725c838f979a89f70446e4037ad8441d06710dada",
+      "release_sha256": "71e3d6e8033cdaa74d9a0e7725c838f979a89f70446e4037ad8441d06710dada"
+    },
+    {
+      "release": "verl/models/__init__.py",
+      "source": "verl/models/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/models/monkey_patch.py",
+      "source": "verl/models/monkey_patch.py",
+      "source_sha256": "235f15787033941179df2380aa586c1de1af90444fedcf4e2ff4da3eb5d4c08b",
+      "release_sha256": "235f15787033941179df2380aa586c1de1af90444fedcf4e2ff4da3eb5d4c08b"
+    },
+    {
+      "release": "verl/models/transformers/__init__.py",
+      "source": "verl/models/transformers/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/models/transformers/flash_attention_utils.py",
+      "source": "verl/models/transformers/flash_attention_utils.py",
+      "source_sha256": "115ef6731be9d9220040aef4362d9c304843df907e56f5c9d118d2633cc0995e",
+      "release_sha256": "115ef6731be9d9220040aef4362d9c304843df907e56f5c9d118d2633cc0995e"
+    },
+    {
+      "release": "verl/models/transformers/qwen2_vl.py",
+      "source": "verl/models/transformers/qwen2_vl.py",
+      "source_sha256": "38ca4470f7250106a1ec24999128f6bc3b59493ffb4a794e821481aea794e06d",
+      "release_sha256": "38ca4470f7250106a1ec24999128f6bc3b59493ffb4a794e821481aea794e06d"
+    },
+    {
+      "release": "verl/models/transformers/qwen3_vl.py",
+      "source": "verl/models/transformers/qwen3_vl.py",
+      "source_sha256": "43680d1889f3f63ac6df1951836a28a8717857b86d48988a9630fbeb2ac481ab",
+      "release_sha256": "43680d1889f3f63ac6df1951836a28a8717857b86d48988a9630fbeb2ac481ab"
+    },
+    {
+      "release": "verl/protocol.py",
+      "source": "verl/protocol.py",
+      "source_sha256": "a634340a086a986c03c96ad27c58da3df792ad4ebd09741c9109d689e2cfebd1",
+      "release_sha256": "a634340a086a986c03c96ad27c58da3df792ad4ebd09741c9109d689e2cfebd1"
+    },
+    {
+      "release": "verl/single_controller/__init__.py",
+      "source": "verl/single_controller/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/single_controller/base/__init__.py",
+      "source": "verl/single_controller/base/__init__.py",
+      "source_sha256": "54c1bcd50ca1c03e4e08d38208bec3db525eaaf46a987b83d032a316d488c1e4",
+      "release_sha256": "54c1bcd50ca1c03e4e08d38208bec3db525eaaf46a987b83d032a316d488c1e4"
+    },
+    {
+      "release": "verl/single_controller/base/decorator.py",
+      "source": "verl/single_controller/base/decorator.py",
+      "source_sha256": "2fe8e039eade8d92390d09a4fb1526183f4c110566825452b15e39843e9d3add",
+      "release_sha256": "2fe8e039eade8d92390d09a4fb1526183f4c110566825452b15e39843e9d3add"
+    },
+    {
+      "release": "verl/single_controller/base/register_center/__init__.py",
+      "source": "verl/single_controller/base/register_center/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/single_controller/base/register_center/ray.py",
+      "source": "verl/single_controller/base/register_center/ray.py",
+      "source_sha256": "7c0a3ea7a3f49b4bbd0a5b0f51136b160dca09cdfded5f52ed4d72aa011bce1e",
+      "release_sha256": "7c0a3ea7a3f49b4bbd0a5b0f51136b160dca09cdfded5f52ed4d72aa011bce1e"
+    },
+    {
+      "release": "verl/single_controller/base/worker.py",
+      "source": "verl/single_controller/base/worker.py",
+      "source_sha256": "ecbbe21a48dd6133700d2028e720eb26870683a0439d8499b43a44bd6486fb99",
+      "release_sha256": "ecbbe21a48dd6133700d2028e720eb26870683a0439d8499b43a44bd6486fb99"
+    },
+    {
+      "release": "verl/single_controller/base/worker_group.py",
+      "source": "verl/single_controller/base/worker_group.py",
+      "source_sha256": "3c3ab71b7d4e18ace6e150585fe3b2134a4419059089885874067fa35962fc90",
+      "release_sha256": "3c3ab71b7d4e18ace6e150585fe3b2134a4419059089885874067fa35962fc90"
+    },
+    {
+      "release": "verl/single_controller/ray/__init__.py",
+      "source": "verl/single_controller/ray/__init__.py",
+      "source_sha256": "5fc70fda13efb9a61e43b268b93cc3ce7fd48988e34d59d9a8fd520d7aa8ec72",
+      "release_sha256": "5fc70fda13efb9a61e43b268b93cc3ce7fd48988e34d59d9a8fd520d7aa8ec72"
+    },
+    {
+      "release": "verl/single_controller/ray/base.py",
+      "source": "verl/single_controller/ray/base.py",
+      "source_sha256": "039982ab0d10549df648427f10b945860c1b8260195faa9552f6336c809a49ab",
+      "release_sha256": "039982ab0d10549df648427f10b945860c1b8260195faa9552f6336c809a49ab"
+    },
+    {
+      "release": "verl/trainer/__init__.py",
+      "source": "verl/trainer/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/trainer/checkpoint_schedule.py",
+      "source": "verl/trainer/checkpoint_schedule.py",
+      "source_sha256": "5dfebd48103bf053dfeaba6cfde99b32cd7d70326e98ee26463cc6774532608c",
+      "release_sha256": "5dfebd48103bf053dfeaba6cfde99b32cd7d70326e98ee26463cc6774532608c"
+    },
+    {
+      "release": "verl/trainer/config.py",
+      "source": "verl/trainer/config.py",
+      "source_sha256": "20ba8d76de0e923f494a405707cc8c29916098ee1944b10c8b4dc7c1949307c4",
+      "release_sha256": "95e0a5976fabc291527f85b9e582ced57c6a4fbed9c1d9ba135ae229f841caf8"
+    },
+    {
+      "release": "verl/trainer/core_algos.py",
+      "source": "verl/trainer/core_algos.py",
+      "source_sha256": "6ceafc31738f423910b1cb99ecda4e1a023a08068b32b6eb843c24c67f7980b2",
+      "release_sha256": "6ceafc31738f423910b1cb99ecda4e1a023a08068b32b6eb843c24c67f7980b2"
+    },
+    {
+      "release": "verl/trainer/data_loader.py",
+      "source": "verl/trainer/data_loader.py",
+      "source_sha256": "324f3c9cb5cadb3604c02162fcaf1fccb6cb77ca96e562443b357351ade9a896",
+      "release_sha256": "324f3c9cb5cadb3604c02162fcaf1fccb6cb77ca96e562443b357351ade9a896"
+    },
+    {
+      "release": "verl/trainer/main.py",
+      "source": "verl/trainer/main.py",
+      "source_sha256": "3299acb25d80234ce3ca6ee94fbdfea871d1f469a5f22d8aaa1ba332ce71458e",
+      "release_sha256": "3299acb25d80234ce3ca6ee94fbdfea871d1f469a5f22d8aaa1ba332ce71458e"
+    },
+    {
+      "release": "verl/trainer/metrics.py",
+      "source": "verl/trainer/metrics.py",
+      "source_sha256": "d77a96494d671e64b73b45f605d94015d49b21b0dcbe1995f92960853545618f",
+      "release_sha256": "d77a96494d671e64b73b45f605d94015d49b21b0dcbe1995f92960853545618f"
+    },
+    {
+      "release": "verl/trainer/opsd_algos.py",
+      "source": "verl/trainer/opsd_algos.py",
+      "source_sha256": "1f36abe439fe2c20116e2cac3f83007f91284a8baa71a55e9d817e7a8b3a9fea",
+      "release_sha256": "1f36abe439fe2c20116e2cac3f83007f91284a8baa71a55e9d817e7a8b3a9fea"
+    },
+    {
+      "release": "verl/trainer/opsd_config.py",
+      "source": "verl/trainer/opsd_config.py",
+      "source_sha256": "41f719a8437f41ad5daf119bfc378d2ac90dc6ceb058588ab63a3ad571ed8504",
+      "release_sha256": "b1e217a74faf90f19a1eb9bd1e6a6af4b43c64489b6851b951d0cdf9816f034d"
+    },
+    {
+      "release": "verl/trainer/opsd_main.py",
+      "source": "verl/trainer/opsd_main.py",
+      "source_sha256": "d7d6485b52a9e12c68f40d89af40ae7a12cf2942cd45d87b8413137dc2417b49",
+      "release_sha256": "d7d6485b52a9e12c68f40d89af40ae7a12cf2942cd45d87b8413137dc2417b49"
+    },
+    {
+      "release": "verl/trainer/opsd_trainer.py",
+      "source": "verl/trainer/opsd_trainer.py",
+      "source_sha256": "06b733c4060cc7c111cd8084c009fbe281742c60eea29bee1dd39d31e98f7f83",
+      "release_sha256": "05ed1edaeb43a53b82fe057ee6718199880dd7010132f1794566172a738e5ddd"
+    },
+    {
+      "release": "verl/trainer/pow3r_rewards.py",
+      "source": "verl/trainer/pow3r_rewards.py",
+      "source_sha256": "e2adbfcaf6ac1c9c452a47852d98042bf42ce62db8c62fd618fadcba6a255063",
+      "release_sha256": "e2adbfcaf6ac1c9c452a47852d98042bf42ce62db8c62fd618fadcba6a255063"
+    },
+    {
+      "release": "verl/trainer/ray_trainer.py",
+      "source": "verl/trainer/ray_trainer.py",
+      "source_sha256": "598e8b6a3b0b946e17b7332d7d4b8e2ef3bafbc0e8effbf4b0d9f78dca35c05a",
+      "release_sha256": "2a8ef73702032de3dd184bf08d11c6a29ab7df9f621f513b0e6b164d3471d4d9"
+    },
+    {
+      "release": "verl/trainer/rubric_baseline_config.py",
+      "source": "verl/trainer/rubric_baseline_config.py",
+      "source_sha256": "f7abb9c9dfe7b312d37ceb1c810745a4ac6229441cee06397944cfd569dd4bac",
+      "release_sha256": "f7abb9c9dfe7b312d37ceb1c810745a4ac6229441cee06397944cfd569dd4bac"
+    },
+    {
+      "release": "verl/trainer/rubric_baseline_training.py",
+      "source": "verl/trainer/rubric_baseline_training.py",
+      "source_sha256": "344c358aef0cd4f6e95072163f390d09d09f993add372e67753f7bbbed84f5d5",
+      "release_sha256": "344c358aef0cd4f6e95072163f390d09d09f993add372e67753f7bbbed84f5d5"
+    },
+    {
+      "release": "verl/trainer/rubric_empirical_batch.py",
+      "source": "verl/trainer/rubric_empirical_batch.py",
+      "source_sha256": "a7c4069a8f2c5dbcc3696214aaae104bd5d67c6b834bc8bd889fa5f39572b12e",
+      "release_sha256": "a7c4069a8f2c5dbcc3696214aaae104bd5d67c6b834bc8bd889fa5f39572b12e"
+    },
+    {
+      "release": "verl/trainer/rubric_evolution.py",
+      "source": "verl/trainer/rubric_evolution.py",
+      "source_sha256": "8e80ebe59058c85d66bdb32c310f44710020ca8edc8bba8eb181385424e611e8",
+      "release_sha256": "8e80ebe59058c85d66bdb32c310f44710020ca8edc8bba8eb181385424e611e8"
+    },
+    {
+      "release": "verl/trainer/rubric_gap_evolution.py",
+      "source": "verl/trainer/rubric_gap_evolution.py",
+      "source_sha256": "6bbdad3e58be3fe098fe62d31779f55118f2144bf7faf9ea331a538107d160a1",
+      "release_sha256": "6bbdad3e58be3fe098fe62d31779f55118f2144bf7faf9ea331a538107d160a1"
+    },
+    {
+      "release": "verl/trainer/rubric_generator_meta_batch.py",
+      "source": "verl/trainer/rubric_generator_meta_batch.py",
+      "source_sha256": "7e23d8d6e87c3fdb2d14a7722c6441643ea7b2721752001f26cfbb6ba3de4fc9",
+      "release_sha256": "7e23d8d6e87c3fdb2d14a7722c6441643ea7b2721752001f26cfbb6ba3de4fc9"
+    },
+    {
+      "release": "verl/trainer/rubric_generator_rewards.py",
+      "source": "verl/trainer/rubric_generator_rewards.py",
+      "source_sha256": "c516c5f21eff702baee1279d3456436e836070463b22344693cab823b2708284",
+      "release_sha256": "8869f385dfa479468acddbe5bb5b34430c3b19f72d98b496978f8f38f7ffd54f"
+    },
+    {
+      "release": "verl/trainer/rubric_generator_rollout.py",
+      "source": "verl/trainer/rubric_generator_rollout.py",
+      "source_sha256": "5ddbacf32cb3a6d844fcf4590fe610d1e7f60ca7e635e3d3927f9644b077d179",
+      "release_sha256": "5ddbacf32cb3a6d844fcf4590fe610d1e7f60ca7e635e3d3927f9644b077d179"
+    },
+    {
+      "release": "verl/trainer/rubric_generator_training.py",
+      "source": "verl/trainer/rubric_generator_training.py",
+      "source_sha256": "13354b6a9a22865dd49f96220dd7f00bb1d44dca0463fccf3aad5ad04dd4cd64",
+      "release_sha256": "13354b6a9a22865dd49f96220dd7f00bb1d44dca0463fccf3aad5ad04dd4cd64"
+    },
+    {
+      "release": "verl/trainer/rubric_generator_verifier.py",
+      "source": "verl/trainer/rubric_generator_verifier.py",
+      "source_sha256": "c3a72610a3ba97171a77fb7987ac545b5875ada83ff7539e22f4872cad313b70",
+      "release_sha256": "c3a72610a3ba97171a77fb7987ac545b5875ada83ff7539e22f4872cad313b70"
+    },
+    {
+      "release": "verl/trainer/rubric_jev_meta_verifier.py",
+      "source": "verl/trainer/rubric_jev_meta_verifier.py",
+      "source_sha256": "6d20a6cf9c3719fb30f5c46c0dd64b696d52e30e72c05157d97160db78766c13",
+      "release_sha256": "6d20a6cf9c3719fb30f5c46c0dd64b696d52e30e72c05157d97160db78766c13"
+    },
+    {
+      "release": "verl/trainer/rubric_meta_recovery.py",
+      "source": "verl/trainer/rubric_meta_recovery.py",
+      "source_sha256": "20fea9bb5ace640f6a16ef493a2a8310f0cfd307a00b9fffdaa63bfe9cf7027e",
+      "release_sha256": "20fea9bb5ace640f6a16ef493a2a8310f0cfd307a00b9fffdaa63bfe9cf7027e"
+    },
+    {
+      "release": "verl/trainer/rubric_meta_response_normalization.py",
+      "source": "verl/trainer/rubric_meta_response_normalization.py",
+      "source_sha256": "5d9fa5e1c1f9c54079c4dfda315f2ce9a61abbcbd1fa6281fde03b12c28ad8fa",
+      "release_sha256": "5d9fa5e1c1f9c54079c4dfda315f2ce9a61abbcbd1fa6281fde03b12c28ad8fa"
+    },
+    {
+      "release": "verl/trainer/rubric_meta_response_validation.py",
+      "source": "verl/trainer/rubric_meta_response_validation.py",
+      "source_sha256": "ac7d3d370fccab079ed0454b918ce4fd2c5846f7ea1ee63e23010ef5ce897517",
+      "release_sha256": "ac7d3d370fccab079ed0454b918ce4fd2c5846f7ea1ee63e23010ef5ce897517"
+    },
+    {
+      "release": "verl/trainer/rubric_meta_verifier.py",
+      "source": "verl/trainer/rubric_meta_verifier.py",
+      "source_sha256": "44abad264d4121af4a0468f68fc79097cab49769b252f1bb81e00245a028c102",
+      "release_sha256": "44abad264d4121af4a0468f68fc79097cab49769b252f1bb81e00245a028c102"
+    },
+    {
+      "release": "verl/trainer/rubric_request_control.py",
+      "source": "verl/trainer/rubric_request_control.py",
+      "source_sha256": "62143138ff0a8c079d55fc378540822c9973f3aef778a2ee1c56c2b2451337e1",
+      "release_sha256": "62143138ff0a8c079d55fc378540822c9973f3aef778a2ee1c56c2b2451337e1"
+    },
+    {
+      "release": "verl/trainer/rubric_weight_allocation.py",
+      "source": "verl/trainer/rubric_weight_allocation.py",
+      "source_sha256": "2e7bd62b8414305ba67a68f49ae256551aea601a8ca252fa89962fc4a1d005bc",
+      "release_sha256": "bc0752e16327f0003310e6e578b773ce95e6761cf1bb98067a048f0509e0f393"
+    },
+    {
+      "release": "verl/utils/__init__.py",
+      "source": "verl/utils/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/utils/checkpoint/__init__.py",
+      "source": "verl/utils/checkpoint/__init__.py",
+      "source_sha256": "af3f01995bb99df376811b5674c2fa3ccc91855ce46ee71d926a1721380c3c92",
+      "release_sha256": "af3f01995bb99df376811b5674c2fa3ccc91855ce46ee71d926a1721380c3c92"
+    },
+    {
+      "release": "verl/utils/checkpoint/checkpoint_manager.py",
+      "source": "verl/utils/checkpoint/checkpoint_manager.py",
+      "source_sha256": "af20ef83b0289591dbd1ccbd91c46dc4a4aadf0094bd6f89edfd743c39f4904f",
+      "release_sha256": "af20ef83b0289591dbd1ccbd91c46dc4a4aadf0094bd6f89edfd743c39f4904f"
+    },
+    {
+      "release": "verl/utils/checkpoint/fsdp_checkpoint_manager.py",
+      "source": "verl/utils/checkpoint/fsdp_checkpoint_manager.py",
+      "source_sha256": "8fed9058efeef85c8668535876b83428b8425f584304155bc79f78ebba40aec6",
+      "release_sha256": "8fed9058efeef85c8668535876b83428b8425f584304155bc79f78ebba40aec6"
+    },
+    {
+      "release": "verl/utils/dataset.py",
+      "source": "verl/utils/dataset.py",
+      "source_sha256": "31d636efc45f65864eaab0c2f7b268a6f32f7009a7af8080cac17b1a66ec56c2",
+      "release_sha256": "31d636efc45f65864eaab0c2f7b268a6f32f7009a7af8080cac17b1a66ec56c2"
+    },
+    {
+      "release": "verl/utils/flops_counter.py",
+      "source": "verl/utils/flops_counter.py",
+      "source_sha256": "0b0121aeacd46cc29d721ea738f5fa5b1dde4866418b4c6de056f7cfce7574a6",
+      "release_sha256": "0b0121aeacd46cc29d721ea738f5fa5b1dde4866418b4c6de056f7cfce7574a6"
+    },
+    {
+      "release": "verl/utils/fsdp_utils.py",
+      "source": "verl/utils/fsdp_utils.py",
+      "source_sha256": "63a1d291cbbdc387ce0720b37619be5be196fba9f2cc6ee271494152a8fc2797",
+      "release_sha256": "63a1d291cbbdc387ce0720b37619be5be196fba9f2cc6ee271494152a8fc2797"
+    },
+    {
+      "release": "verl/utils/logger/__init__.py",
+      "source": "verl/utils/logger/__init__.py",
+      "source_sha256": "1139d6b27e3b16de699fbfb62af96996929975179ca2ee8f6f7440b5592aa9aa",
+      "release_sha256": "1139d6b27e3b16de699fbfb62af96996929975179ca2ee8f6f7440b5592aa9aa"
+    },
+    {
+      "release": "verl/utils/logger/gen_logger.py",
+      "source": "verl/utils/logger/gen_logger.py",
+      "source_sha256": "a34fc8761b5ddc3a02c3b368f1bae8b3f0b53cfb11fda8e294fc6e844c0ea95a",
+      "release_sha256": "a34fc8761b5ddc3a02c3b368f1bae8b3f0b53cfb11fda8e294fc6e844c0ea95a"
+    },
+    {
+      "release": "verl/utils/logger/logger.py",
+      "source": "verl/utils/logger/logger.py",
+      "source_sha256": "bef8fddc63d378770766fdba1f39937a98359e1f1c887084d970170933d91d24",
+      "release_sha256": "4d550ad2ae3cf4b83c30c4c6682457f42032e92fcf918ec07587c6dc558e13c4"
+    },
+    {
+      "release": "verl/utils/model_utils.py",
+      "source": "verl/utils/model_utils.py",
+      "source_sha256": "fb83e18b441b1de34c04b9798d58ba8dbc49df84466aab998db0826fd2cbf316",
+      "release_sha256": "fb83e18b441b1de34c04b9798d58ba8dbc49df84466aab998db0826fd2cbf316"
+    },
+    {
+      "release": "verl/utils/prompt_template.py",
+      "source": "verl/utils/prompt_template.py",
+      "source_sha256": "d2bc24025ca583898b02d34361ca84e9c46fcc8df79696374b20f339b352811b",
+      "release_sha256": "d2bc24025ca583898b02d34361ca84e9c46fcc8df79696374b20f339b352811b"
+    },
+    {
+      "release": "verl/utils/py_functional.py",
+      "source": "verl/utils/py_functional.py",
+      "source_sha256": "89be48d8c3a167febbf375a88a6fd5cec0f910741b1a4adeb55a40929d123c93",
+      "release_sha256": "89be48d8c3a167febbf375a88a6fd5cec0f910741b1a4adeb55a40929d123c93"
+    },
+    {
+      "release": "verl/utils/seqlen_balancing.py",
+      "source": "verl/utils/seqlen_balancing.py",
+      "source_sha256": "f1319a58338d64cbdbfffb9f881e2fe484cffc2b405fe078d0835985b412169d",
+      "release_sha256": "f1319a58338d64cbdbfffb9f881e2fe484cffc2b405fe078d0835985b412169d"
+    },
+    {
+      "release": "verl/utils/tokenizer.py",
+      "source": "verl/utils/tokenizer.py",
+      "source_sha256": "0e20ac39d453e7dc7a4498da91806a7e2629eb59e34c47a26edfdf6ffa6401dc",
+      "release_sha256": "0e20ac39d453e7dc7a4498da91806a7e2629eb59e34c47a26edfdf6ffa6401dc"
+    },
+    {
+      "release": "verl/utils/torch_dtypes.py",
+      "source": "verl/utils/torch_dtypes.py",
+      "source_sha256": "c3bb3c5d061b364ba412f927a82775cdca6205380d8ecbc25548f938be0fd30f",
+      "release_sha256": "c3bb3c5d061b364ba412f927a82775cdca6205380d8ecbc25548f938be0fd30f"
+    },
+    {
+      "release": "verl/utils/torch_functional.py",
+      "source": "verl/utils/torch_functional.py",
+      "source_sha256": "fd686c86f5e479acb39d873fef8eadc048e616f8c7a868ea50c71e925667e651",
+      "release_sha256": "fd686c86f5e479acb39d873fef8eadc048e616f8c7a868ea50c71e925667e651"
+    },
+    {
+      "release": "verl/utils/ulysses.py",
+      "source": "verl/utils/ulysses.py",
+      "source_sha256": "9ab1d44fec1a1cb985263a87933a731bf93b818f3ce2f785079c8b0aa50837b0",
+      "release_sha256": "9ab1d44fec1a1cb985263a87933a731bf93b818f3ce2f785079c8b0aa50837b0"
+    },
+    {
+      "release": "verl/workers/__init__.py",
+      "source": "verl/workers/__init__.py",
+      "source_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c",
+      "release_sha256": "e65abd77db034b4f29eb1268c24867f84919dbce22e28d1997e563ed1d94179c"
+    },
+    {
+      "release": "verl/workers/actor/__init__.py",
+      "source": "verl/workers/actor/__init__.py",
+      "source_sha256": "fd3fc174b81b2f10b2a78e43f0b652405fff2a59ec25ebb8856493b505369ed3",
+      "release_sha256": "fd3fc174b81b2f10b2a78e43f0b652405fff2a59ec25ebb8856493b505369ed3"
+    },
+    {
+      "release": "verl/workers/actor/base.py",
+      "source": "verl/workers/actor/base.py",
+      "source_sha256": "d2fe132edff46e673e7c338615edd880efc7c347c16dde1cafbe063dd4318d01",
+      "release_sha256": "d2fe132edff46e673e7c338615edd880efc7c347c16dde1cafbe063dd4318d01"
+    },
+    {
+      "release": "verl/workers/actor/config.py",
+      "source": "verl/workers/actor/config.py",
+      "source_sha256": "8ce23e8a69679c46c4a6b631488e42cffa866c40e8b7d344a2e599ed335389b6",
+      "release_sha256": "8ce23e8a69679c46c4a6b631488e42cffa866c40e8b7d344a2e599ed335389b6"
+    },
+    {
+      "release": "verl/workers/actor/dp_actor.py",
+      "source": "verl/workers/actor/dp_actor.py",
+      "source_sha256": "9e02eebe2606c073f892d9dc0496e77fd8afc6dcf271cc58ccceff0eef0f25ee",
+      "release_sha256": "9e02eebe2606c073f892d9dc0496e77fd8afc6dcf271cc58ccceff0eef0f25ee"
+    },
+    {
+      "release": "verl/workers/actor/dp_opsd_actor.py",
+      "source": "verl/workers/actor/dp_opsd_actor.py",
+      "source_sha256": "18d95600f8c58416073d27a625ef1c7364260826791eade7f8e1eb7708fe1837",
+      "release_sha256": "18d95600f8c58416073d27a625ef1c7364260826791eade7f8e1eb7708fe1837"
+    },
+    {
+      "release": "verl/workers/actor/rubric_joint_update.py",
+      "source": "verl/workers/actor/rubric_joint_update.py",
+      "source_sha256": "d2dac6dd8cc32afa31296be95c15ad288fabd627f3000c2a2548d6b2d6796a1c",
+      "release_sha256": "d2dac6dd8cc32afa31296be95c15ad288fabd627f3000c2a2548d6b2d6796a1c"
+    },
+    {
+      "release": "verl/workers/config.py",
+      "source": "verl/workers/config.py",
+      "source_sha256": "9b8ec86a3a8098b73845b2b74363c4bad0d904390db7c1e4249d0d42dcca9513",
+      "release_sha256": "9b8ec86a3a8098b73845b2b74363c4bad0d904390db7c1e4249d0d42dcca9513"
+    },
+    {
+      "release": "verl/workers/critic/__init__.py",
+      "source": "verl/workers/critic/__init__.py",
+      "source_sha256": "bb434041e7522163ce3ca2bbda2ce330fd2fffad0f95524f061cd0df64a70208",
+      "release_sha256": "bb434041e7522163ce3ca2bbda2ce330fd2fffad0f95524f061cd0df64a70208"
+    },
+    {
+      "release": "verl/workers/critic/base.py",
+      "source": "verl/workers/critic/base.py",
+      "source_sha256": "d3d3cddc85e8da64dbc3cd256fd50a02f518da3a9cb15d2eebd9a14894113f48",
+      "release_sha256": "d3d3cddc85e8da64dbc3cd256fd50a02f518da3a9cb15d2eebd9a14894113f48"
+    },
+    {
+      "release": "verl/workers/critic/config.py",
+      "source": "verl/workers/critic/config.py",
+      "source_sha256": "d69c1682da5739e7fbe68a2c834edb49adae1c0bea313678fc5afc044af4e5c8",
+      "release_sha256": "d69c1682da5739e7fbe68a2c834edb49adae1c0bea313678fc5afc044af4e5c8"
+    },
+    {
+      "release": "verl/workers/critic/dp_critic.py",
+      "source": "verl/workers/critic/dp_critic.py",
+      "source_sha256": "aa5c690a67e1a73187cd4789d195e412f27430e142520ecb28bc6660fc88ece0",
+      "release_sha256": "aa5c690a67e1a73187cd4789d195e412f27430e142520ecb28bc6660fc88ece0"
+    },
+    {
+      "release": "verl/workers/fsdp_workers.py",
+      "source": "verl/workers/fsdp_workers.py",
+      "source_sha256": "fd7c03f00e67868524c5444423dd743a8d4b50d065ee8387b198b376e213cd2c",
+      "release_sha256": "fd7c03f00e67868524c5444423dd743a8d4b50d065ee8387b198b376e213cd2c"
+    },
+    {
+      "release": "verl/workers/reward/__init__.py",
+      "source": "verl/workers/reward/__init__.py",
+      "source_sha256": "4c9c55efeb8c5fc040b685b2c0a7d69f529556de344f1681453392d7e7768893",
+      "release_sha256": "4c9c55efeb8c5fc040b685b2c0a7d69f529556de344f1681453392d7e7768893"
+    },
+    {
+      "release": "verl/workers/reward/config.py",
+      "source": "verl/workers/reward/config.py",
+      "source_sha256": "ec840eff8da9d4bd9d9d009dce98cfc8a44344af26e03abbedab905718e945c4",
+      "release_sha256": "ec840eff8da9d4bd9d9d009dce98cfc8a44344af26e03abbedab905718e945c4"
+    },
+    {
+      "release": "verl/workers/reward/function.py",
+      "source": "verl/workers/reward/function.py",
+      "source_sha256": "d53d9616dd3a764df086e6ed18004475565f60e8f9c43c959f2dde8594ee051f",
+      "release_sha256": "d53d9616dd3a764df086e6ed18004475565f60e8f9c43c959f2dde8594ee051f"
+    },
+    {
+      "release": "verl/workers/rollout/__init__.py",
+      "source": "verl/workers/rollout/__init__.py",
+      "source_sha256": "ec21899375e17206d65cf786d384927c880c07b1000d567c0b55e85e682bd64e",
+      "release_sha256": "ec21899375e17206d65cf786d384927c880c07b1000d567c0b55e85e682bd64e"
+    },
+    {
+      "release": "verl/workers/rollout/base.py",
+      "source": "verl/workers/rollout/base.py",
+      "source_sha256": "7cf5fe139d23f17ef028d71fc528425de061a6842ed6f74cfe0c7db49b7fd00d",
+      "release_sha256": "7cf5fe139d23f17ef028d71fc528425de061a6842ed6f74cfe0c7db49b7fd00d"
+    },
+    {
+      "release": "verl/workers/rollout/config.py",
+      "source": "verl/workers/rollout/config.py",
+      "source_sha256": "627edcd899c9ed85c3367fe58cd5c1dde7c3ba863fe91c70ae8c1d8be9ef2dbb",
+      "release_sha256": "627edcd899c9ed85c3367fe58cd5c1dde7c3ba863fe91c70ae8c1d8be9ef2dbb"
+    },
+    {
+      "release": "verl/workers/rollout/vllm_rollout_spmd.py",
+      "source": "verl/workers/rollout/vllm_rollout_spmd.py",
+      "source_sha256": "84c1ae0caf9c8b1d4f9b63959a83de2ed5527e231838d81b6847a7e5b761756c",
+      "release_sha256": "84c1ae0caf9c8b1d4f9b63959a83de2ed5527e231838d81b6847a7e5b761756c"
+    },
+    {
+      "release": "verl/workers/rubric_teacher_state.py",
+      "source": "verl/workers/rubric_teacher_state.py",
+      "source_sha256": "16622b50aaa662e384d8bc074e2e6045ffa5d98b5e4553e1297576a79cf91653",
+      "release_sha256": "16622b50aaa662e384d8bc074e2e6045ffa5d98b5e4553e1297576a79cf91653"
+    },
+    {
+      "release": "verl/workers/sharding_manager/__init__.py",
+      "source": "verl/workers/sharding_manager/__init__.py",
+      "source_sha256": "d736c2258db98c57fa97613b0128268e438cfd48ed309ebc8decdf1947d40bce",
+      "release_sha256": "d736c2258db98c57fa97613b0128268e438cfd48ed309ebc8decdf1947d40bce"
+    },
+    {
+      "release": "verl/workers/sharding_manager/base.py",
+      "source": "verl/workers/sharding_manager/base.py",
+      "source_sha256": "e7f8645a6e4b34dac2e19229bb0c18e5f1de4993fbcb7f84640ef1e6244d15c2",
+      "release_sha256": "e7f8645a6e4b34dac2e19229bb0c18e5f1de4993fbcb7f84640ef1e6244d15c2"
+    },
+    {
+      "release": "verl/workers/sharding_manager/fsdp_ulysses.py",
+      "source": "verl/workers/sharding_manager/fsdp_ulysses.py",
+      "source_sha256": "dd3a8b3252787f3a711396e5015b24b3ea44a452db21f85c8680efa78646d64b",
+      "release_sha256": "dd3a8b3252787f3a711396e5015b24b3ea44a452db21f85c8680efa78646d64b"
+    },
+    {
+      "release": "verl/workers/sharding_manager/fsdp_vllm.py",
+      "source": "verl/workers/sharding_manager/fsdp_vllm.py",
+      "source_sha256": "beb57d89f499fa55d0d1a75557728c616029e0fcdf6f15b76093d454f6987b9b",
+      "release_sha256": "beb57d89f499fa55d0d1a75557728c616029e0fcdf6f15b76093d454f6987b9b"
+    }
+  ]
+}

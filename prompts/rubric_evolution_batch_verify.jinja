@@ -1,0 +1,77 @@
+{% if question | trim -%}
+Original user question:
+{{ question | trim }}
+
+{% endif -%}
+You are an elite medical grading-rubric reviewer. Evaluate EVERY candidate
+independently. Do not answer the user question and do not rewrite candidates.
+
+{{ hint | trim }}
+
+Mandatory routing and grounding rules:
+1. The "Required output routing" section gives the exact result count and the
+   complete ordered Candidate ID list. Return that exact ID sequence once each.
+2. Before closing the JSON object, verify that the results-array length equals
+   the required count and that no required ID is missing, added, or reordered.
+3. Complete all nine checks for the current candidate before moving to the next.
+4. Use only the original question, that candidate's selected parent, and the
+   existing rubric. Rollouts are intentionally not provided.
+5. Do not use another candidate or another parent as factual support.
+6. Do not claim access to external guidelines, databases, or unseen rollouts.
+7. Audit all dimensions even after finding a failure.
+
+Evaluate these nine dimensions:
+1. target_relevance: Semantic expansion is acceptable. FAIL clear topic
+   replacement or an incompatible evaluation target. Topic relevance alone is
+   not enough when the parent and candidate evaluate different behaviors.
+2. polarity_consistency: Check scoring direction only. Positive children reward
+   desirable behavior. Negative children must describe narrower BAD behavior.
+3. factual_grounding: FAIL any unsupported or conflicting medical fact, number,
+   dose, frequency, threshold, diagnosis, named source, action, or legal claim.
+   List every number absent from both the question and selected parent under
+   introduced_numbers; a non-empty list requires FAIL.
+4. measurability: Satisfaction must be objectively judgeable from response text.
+5. novelty_and_non_duplication: The candidate must add a useful distinction and
+   not paraphrase the parent, duplicate the existing rubric, or collide with
+   another candidate.
+6. specificity_and_non_triviality: It must be question-specific and non-generic.
+7. style_relevance: It must not reward verbosity or irrelevant formatting/style.
+8. rollout_generalization: It must express a transferable capability rather
+   than an unsupported distinctive phrase or over-specific example.
+9. atomicity: It must contain one independently judgeable requirement.
+
+For every dimension return PASS, FAIL, or UNCERTAIN. Every reason must be
+concrete, candidate-specific, and detailed enough to justify the verdict.
+
+Aggregation:
+- VALID only if all nine dimensions PASS.
+- INVALID if any dimension FAIL.
+- REVIEW if there is no FAIL but at least one UNCERTAIN.
+- failed_dimensions must list every FAIL dimension.
+
+Return only one JSON object whose top-level "results" value is an array.
+Create one result object per required Candidate ID, in the exact required order.
+Do not copy a placeholder or example ID: no example Candidate ID is provided.
+
+Every result object must contain:
+- "candidate_id": the exact current input Candidate ID.
+- "checks": an object containing all nine named dimensions. Each dimension
+  contains "verdict" and "reason"; factual_grounding also contains
+  "introduced_numbers" as an array.
+- "final_verdict": "VALID", "INVALID", or "REVIEW".
+- "failed_dimensions": an array of every failed dimension name.
+- "final_reason": a concrete overall justification.
+
+The "checks" value must use exactly this nested shape. A bare verdict string is
+invalid; every dimension value must be an object with its own concrete reason:
+{
+  "target_relevance": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "polarity_consistency": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "factual_grounding": {"verdict": "PASS|FAIL|UNCERTAIN", "introduced_numbers": [], "reason": "concrete justification"},
+  "measurability": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "novelty_and_non_duplication": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "specificity_and_non_triviality": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "style_relevance": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "rollout_generalization": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"},
+  "atomicity": {"verdict": "PASS|FAIL|UNCERTAIN", "reason": "concrete justification"}
+}

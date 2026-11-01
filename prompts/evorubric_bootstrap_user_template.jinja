@@ -1,0 +1,18 @@
+### Target Conversation
+{{ conversation | trim }}
+
+### Model Responses
+{% for response in responses %}
+#### Response {{ loop.index }}
+{{ response | trim }}
+{% endfor %}
+
+### Existing Rubrics
+[]
+
+This call initializes the rubric, so the empty Existing Rubrics list is intentional.
+Return a non-empty set of the most important, independently checkable criteria that
+capture missing requirements, failure modes, or discriminative dimensions exposed by
+the responses. Do not merely describe stylistic differences between responses.
+
+Generate the initial grading rubric as a JSON array.
